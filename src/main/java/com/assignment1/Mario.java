@@ -6,6 +6,16 @@ package com.assignment1;
  */
 public class Mario implements Player {
     /**
+     * Score class responsible for keeping track of the player's score
+     */
+    private Score score;
+
+    /**
+     * Lives class responsible for keeping track of the player's lives
+     */
+    private Lives lives;
+
+    /**
      * The constant GAME_START_POSITION_X represents the starting x-coordinate of Mario when the game starts.
      */
     private static final int GAME_START_POSITION_X = 0;
@@ -46,6 +56,8 @@ public class Mario implements Player {
     public Mario() {
         this.x = GAME_START_POSITION_X;
         this.y = GAME_START_POSITION_Y;
+        this.score = new Score();
+        this.lives = new Lives();
     }
 
     /**
@@ -56,6 +68,39 @@ public class Mario implements Player {
     public Mario(int x, int y) {
         this.x = x;
         this.y = y;
+        this.score = new Score();
+        this.lives = new Lives();
+    }
+
+    /**
+     * Method that increments the score value by a given amount
+     * @param value int increment value
+     */
+    public void incrementScore(int value) {
+        this.score.incrementValue(value);
+    }
+
+    /**
+     * Getter for the score value
+     * @return int score value
+     */
+    public int getScore() {
+        return this.score.getValue();
+    }
+
+    /**
+     * Method that decrements the lives value by 1
+     */
+    public void decrementLives() {
+        this.lives.decrementValue();
+    }
+
+    /**
+     * Getter for the lives value
+     * @return int lives value
+     */
+    public int getLives() {
+        return this.lives.getValue();
     }
 
     /**

@@ -20,24 +20,31 @@ interface PowerUp extends Entity {
 }
 
 public class DonkeyKongGame {
+    public static boolean gameRunning;
+
     /**
      * render method is responsible for drawing all the elements of the game on the screen based on their current state
      */
-    public void render() {
+    public static void render() {
 
     }
 
     /**
      * update method is responsible for updating the game state and position of all the elements based on the game logic
      */
-    public void update() {
+    public static void update() {
 
     }
 
-    private DonkeyKongGame() {
+    public DonkeyKongGame() {
+
     }
-    
+
     public static void main(String[] args) {
         
+        while (gameRunning) {
+            update();
+            render();
+        }
     }
 }
