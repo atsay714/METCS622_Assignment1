@@ -21,7 +21,7 @@ Clone the repository to your local machine
 
 Copy code
 
-`git clone https://github.com/atsay714/assignment1`
+`git clone https://github.com/atsay714/METCS622_Assignment1`
 
 Import the project into your preferred Java IDE
 
