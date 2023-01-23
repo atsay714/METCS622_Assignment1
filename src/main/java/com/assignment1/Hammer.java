@@ -20,6 +20,11 @@ public class Hammer implements PowerUp{
      */
     private boolean isConsumed;
 
+    public Hammer(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     /**
      * Getter for the consumed status of the Hammer
      * @return true if the Hammer has been consumed, false otherwise

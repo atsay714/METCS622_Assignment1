@@ -73,14 +73,12 @@ public class DonkeyKongGame {
     }
 
     public DonkeyKongGame() {
-
     }
 
     public static void main(String[] args) {
-        
-        while (gameRunning) {
-            update();
-            render();
-        }
+
+        GameManager gameManager = new GameManager();
+        Thread thread = new Thread(() -> gameManager.gameLoop());
+        thread.start();
     }
 }

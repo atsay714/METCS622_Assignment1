@@ -4,6 +4,29 @@ package com.assignment1;
  * PrincessPeach class represents the princess Peach entity in the game.
  */
 public class PrincessPeach implements Entity {
+    private int x;
+    private int y;
+
+    public PrincessPeach(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 
     /**
      * render method is responsible for drawing the Princess Peach on the screen based on its current position,

@@ -6,6 +6,10 @@ package com.assignment1;
 public class Score {
     private int value;
 
+    public Score(int value) {
+        this.value = value;
+    }
+
     /**
      * Getter for the score value
      * @return int score value

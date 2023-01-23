@@ -6,6 +6,10 @@ package com.assignment1;
 public class Lives {
     private int value;
 
+    public Lives(int i) {
+        this.value = i;
+    }
+
     /**
      * Getter for the lives value
      * @return int lives value
