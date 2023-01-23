@@ -30,7 +30,7 @@ Build and run the project
 ## Built With
 Java - The programming language used
 
-Visual Studio - The IDE used
+Visual Studio Code - The IDE used
 
 ## Contributing
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
