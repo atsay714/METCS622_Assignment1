@@ -7,8 +7,12 @@ public class DonkeyKong implements Entity {
     private int x;
     private int y;
 
+    public DonkeyKong() {
+    }
+
     public DonkeyKong(int x, int y) {
-        
+        this.x = x;
+        this.y = y;
     }
 
     public int getX() {

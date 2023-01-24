@@ -3,6 +3,11 @@ package com.assignment1;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * GameManager class is responsible for managing all the game objects,
+ * entities, power-ups, and obstacles. It also handles the game loop,
+ * input handling, and rendering of the game screen.
+ */
 public class GameManager {
     private Mario mario;
     private DonkeyKong donkeyKong;
@@ -13,6 +18,8 @@ public class GameManager {
     private List<Barrel> barrels;
     private List<PowerUp> powerUps;
     private boolean gameRunning;
+    private long lastUpdateTime;
+    private long currentTime;
     private final int FPS = 60;
     private final long barrelSpawnDelay = 2000; // 2 seconds
 
@@ -35,10 +42,12 @@ public class GameManager {
         System.out.println("Initializing Barrels");
         powerUps = new ArrayList<>();
         System.out.println("Initializing Power-Ups");
+        
+        createEntities();
     }
 
     public void createEntities() {
-        // Create obstacles
+        // Create ladders
         ladders.add(new Ladder(50, 50));
         ladders.add(new Ladder(150, 150));
         ladders.add(new Ladder(250, 250));
@@ -48,20 +57,22 @@ public class GameManager {
         powerUps.add(new Hammer(20, 20));
     }
 
-    public void updateEntities() {
+    public void updateEntities(long elapsedTime) {
         // Update Mario
         mario.update();
-        System.out.println("Update Mario");
 
         // Update Donkey Kong
         donkeyKong.update();
-        System.out.println("Update Donkey Kong");
 
         // Update barrels
-        barrels.add(new Barrel(10, 100));
-        System.out.println("Spawn new Barrel");
+        if(elapsedTime > barrelSpawnDelay)
+        {
+            barrels.add(new Barrel(10, 100, false));
+            System.out.println("Spawn new Barrel");
+            lastUpdateTime = currentTime;
+        }
         for (Barrel barrel : barrels) {
-            barrel.setX(barrel.getX()+20);
+            barrel.update();
             System.out.println("Updated " + barrel + " position: (" + barrel.getX() + ", " + barrel.getY() + ")");
         }
         System.out.println("Number of barrels: " + barrels.size());
@@ -78,27 +89,24 @@ public class GameManager {
         System.out.println("Render Donkey Kong");
 
         for (Barrel barrel : barrels) {
+            barrel.render();
             System.out.println("Render barrel: " + barrel);
         }
     }
 
-    public void handleInput() {
-        // Check for keyboard input
+    private void handleInput() {
+
     }
 
     public void gameLoop() {
-        long lastUpdateTime = System.currentTimeMillis();
+        lastUpdateTime = System.currentTimeMillis();
         while (gameRunning) {
-            long currentTime = System.currentTimeMillis();
+            currentTime = System.currentTimeMillis();
             long elapsedTime = currentTime - lastUpdateTime;
 
-            if(elapsedTime > barrelSpawnDelay)
-            {
-                updateEntities();
-                renderEntities();
-                handleInput();
-                lastUpdateTime = currentTime;
-            }
+            updateEntities(elapsedTime);
+            renderEntities();
+            handleInput();
 
             try {
                 Thread.sleep(1000/FPS);

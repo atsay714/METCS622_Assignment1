@@ -7,6 +7,9 @@ public class PrincessPeach implements Entity {
     private int x;
     private int y;
 
+    public PrincessPeach() {
+    }
+
     public PrincessPeach(int x, int y) {
         this.x = x;
         this.y = y;

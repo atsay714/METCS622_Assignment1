@@ -6,6 +6,16 @@ public class Barrel implements Obstacle {
 
     private int y;
 
+    private boolean isBlue;
+
+    public boolean isBlue() {
+        return isBlue;
+    }
+
+    public void setBlue(boolean isBlue) {
+        this.isBlue = isBlue;
+    }
+
     public int getX() {
         return x;
     }
@@ -22,9 +32,13 @@ public class Barrel implements Obstacle {
         this.y = y;
     }
 
-    public Barrel(int x, int y) {
+    public Barrel() {
+    }
+
+    public Barrel(int x, int y, boolean isBlue) {
         this.x = x;
         this.y = y;
+        this.isBlue = isBlue;
     }
 
     @Override
@@ -35,8 +49,7 @@ public class Barrel implements Obstacle {
 
     @Override
     public void update() {
-        // TODO Auto-generated method stub
-        
+        this.x = this.x + 1;
     }
 
     @Override

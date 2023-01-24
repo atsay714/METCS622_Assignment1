@@ -30,9 +30,6 @@ public class Mario implements Player {
      */
     private int velocity;
 
-    /**
-     * Default constructor, starts Mario at game start position
-     */
     public Mario() {
     }
 
@@ -44,6 +41,15 @@ public class Mario implements Player {
     public Mario(int x, int y) {
         this.x = x;
         this.y = y;
+        this.velocity = 5;
+    }
+
+    public void moveLeft() {
+        dx = -velocity;
+    }
+
+    public void moveRight() {
+        dx = velocity;
     }
 
     /**
@@ -142,8 +148,8 @@ public class Mario implements Player {
      */
     @Override
     public void update() {
-        // TODO Auto-generated method stub
-        
+        move();
+        dx = 0;
     }
 
     /**
@@ -152,7 +158,7 @@ public class Mario implements Player {
      */
     @Override
     public void move() {
-        // TODO Auto-generated method stub
+        x += dx;
     }
 
     /**

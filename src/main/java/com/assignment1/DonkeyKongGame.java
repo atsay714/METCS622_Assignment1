@@ -55,22 +55,11 @@ interface PowerUp extends Entity {
     void remove();
 }
 
+/**
+ * DonkeyKongGame is the main class that sets up and runs the game.
+ * It creates an instance of the GameManager class and starts the game loop.
+ */
 public class DonkeyKongGame {
-    public static boolean gameRunning;
-
-    /**
-     * render method is responsible for drawing all the elements of the game on the screen based on their current state
-     */
-    public static void render() {
-
-    }
-
-    /**
-     * update method is responsible for updating the game state and position of all the elements based on the game logic
-     */
-    public static void update() {
-
-    }
 
     public DonkeyKongGame() {
     }
